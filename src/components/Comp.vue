@@ -2,14 +2,17 @@
 const props = defineProps({
   msg: String,
 })
+const emits = defineEmits(["clicou"])
 
-const a = "hey..."
-console.log(a)
+const clickHandler = () => {
+  emits("clicou", { a: 1, b: 2, msg: props.msg })
+}
 </script>
 
 <template>
   <div>
-    {{ a }}
     {{ props.msg }}
+
+    <button @click="clickHandler">Click</button>
   </div>
 </template>
